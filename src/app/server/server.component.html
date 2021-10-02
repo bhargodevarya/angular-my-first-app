@@ -1,4 +1,14 @@
 <!--
     This file decides what gets rendered when the component is included
 -->
-<p>server works!</p>
+<!-- property binding-->
+<p [class]="pclass">server works!</p>
+<br>
+<!-- string interpolation-->
+<p>{{ text }}</p>
+<br>
+<p>Added {{ buttonClick }} servers </p>
+<br>
+<!-- event binding and sending the event-->
+<button (click)="serverAdded($event)">Add server</button>
+<button (click)="resetCount()">Reset count</button>
