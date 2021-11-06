@@ -4,11 +4,26 @@
 <!-- property binding-->
 <p [class]="pclass">server works!</p>
 <br>
+
 <!-- string interpolation-->
+<!-- 2-way binding of the field 'text' does not change the value here automatically.
+Untill the value on th ts component is updated exlicitly, this value does not change.
+-->
 <p>{{ text }}</p>
+
 <br>
 <p>Added {{ buttonClick }} servers </p>
 <br>
+
+<input type="text" [value]="text"/>
+<br>
+
+<!-- 2 way data binding, the value for this field is populated
+from the ts component and any chnages here will change the value here as well.
+-->
+<input type="text" [(value)]="text" size="50"/>
+<br>
+
 <!-- event binding and sending the event-->
 <button (click)="serverAdded($event)">Add server</button>
 <button (click)="resetCount()">Reset count</button>

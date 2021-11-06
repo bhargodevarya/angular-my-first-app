@@ -26,6 +26,7 @@ export class ServerComponent implements OnInit {
   serverAdded(event:Event): void {
     console.log('Clicked', event)
     this.buttonClick = this.buttonClick + 1
+    this.text = this.text.concat('Added')
   } 
 
   resetCount(): void {
