@@ -17,10 +17,24 @@ export class ServerComponent implements OnInit {
   text:String = 'I was Added from the component'
   buttonClick:number = 0
   pclass:String = 'greenbg'
+  day:String = ''
+  isDayEmpty:Boolean = this.day == ''
+  days:String[] = []
+  daysMap: Map<String, String> = new Map()
 
   constructor() { }
 
   ngOnInit(): void {
+    this.daysMap.set('Monday', 'Fast')
+    this.daysMap.set('Tuesday', 'Work')
+    this.daysMap.set('Wednesday', 'Work')
+    this.daysMap.set('Thursday', 'Work')
+    this.daysMap.set('Friday', 'Work')
+    this.daysMap.set('Saturday', 'Study')
+    this.daysMap.set('Sunday', 'Reflect')
+    for (let day of this.daysMap.keys()) {
+      this.days.push(day)
+    }
   }
 
   serverAdded(event:Event): void {
@@ -31,6 +45,15 @@ export class ServerComponent implements OnInit {
 
   resetCount(): void {
     this.buttonClick = 0
+  }
+
+  dayChange(event:Event) {
+    console.log(event.target['value'])
+    this.day = event.target['value']
+  }
+
+  resetDays() {
+    this.day = ''
   }
 
 }

@@ -27,3 +27,27 @@ from the ts component and any chnages here will change the value here as well.
 <!-- event binding and sending the event-->
 <button (click)="serverAdded($event)">Add server</button>
 <button (click)="resetCount()">Reset count</button>
+
+<br>
+<br>
+
+<!--
+Both 2 way binding and event binding is done here.
+2 way binding is so that the reset button at the bottom can change the value for the text box.
+Only 2 way inding does not update the string interpolation variables on the page.
+Therefore we bing the input change event to the function on the component that
+changes the variable.
+-->
+Lets start with <input type='text' [(value)]='day' (input)="dayChange($event)">
+
+<!-- if the value for the 'day' field is not empty then get the value for the 'day'
+key from the 'daysMap'-->
+<p *ngIf="day != ''">{{ daysMap.get(day) }}</p>
+
+<!-- For each day in the 'days' array on the component, display the day-->
+<ul *ngFor="let day of days">
+<li>{{day}}</li>
+</ul>
+
+<!--Binding onClick function of the button to the resetDays function of the component-->
+<button (click)="resetDays()">Reset</button>
